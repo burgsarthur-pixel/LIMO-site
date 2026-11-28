@@ -19,4 +19,6 @@ with zipfile.ZipFile(PACKAGE) as archive:
         shutil.rmtree(OUT)
     OUT.mkdir()
     archive.extractall(OUT)
+# A página inicial versionada no repositório prevalece sobre a do pacote.
+shutil.copyfile(ROOT / 'index.html', OUT / 'index.html')
 print(f'Site montado: {len(names)} arquivos')
